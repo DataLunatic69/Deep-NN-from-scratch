@@ -20,10 +20,10 @@
 This project implements a digit classifier using a custom neural network built with NumPy and TensorFlow. The model is trained on the **MNIST** dataset, which consists of handwritten digits from 0 to 9.
 
 ## **Features**
-- Text classification into emotion categories using pre-trained DistilBERT.
-- Fine-tuning with PyTorch for custom datasets.
-- Tkinter-based GUI for easy interaction.
-- High accuracy and F1 score using standard evaluation metrics.
+- Custom neural network architecture with two hidden layers.
+- Uses **sigmoid** and **ReLU** activation functions.
+- Implements dropout for regularization to prevent overfitting.
+- High accuracy on the MNIST test dataset.
 
 ---
 
@@ -31,12 +31,13 @@ This project implements a digit classifier using a custom neural network built w
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/emotion-classifier.git
-cd emotion-classifier
+git clone https://github.com/your-username/mnist-digit-classifier.git
+cd mnist-digit-classifier
 ```
 ### **2. Install Dependencies**
 ```bash
-pip install -r requirements.txt
+pip install numpy tensorflow
+
 ```
 ### **3. Download Pretrained Models**
 ```bash
@@ -52,23 +53,31 @@ model = AutoModelForSequenceClassification.from_pretrained(model_ckpt)
 
 ## **Usage**
 
-### **Command Line Interface (CLI)**
+### **1. Load and Preprocess the MNIST Dataset**
 ```bash
-python classify_emotion.py --text "I am so happy today!"
+The script automatically loads the MNIST dataset and preprocesses the data."
 
 ```
-### **Graphical User Interface (GUI)**
-```bash
-python emotion_gui.py
+## **2.Run the model**
 
+### **To train the model and evaluate performance, run:**
+```bash
+python mnist_classifier.py
 
 ```
 
-## **Train the model**
+## **Model Training**
 
 
 ```bash
-python train_emotion_classifier.py --epochs 3 --batch_size 32 --lr 2e-5
+The training is conducted in the main script, with adjustable parameters:
+
+Learning Rate: Set in the model function.
+Iterations: Number of training iterations.
+Dropout Probabilities: Control the dropout layers.
+The model prints the cost every 100 iterations and evaluates accuracy on the test set at the end.
+
+
 
 
 ```
@@ -76,10 +85,9 @@ python train_emotion_classifier.py --epochs 3 --batch_size 32 --lr 2e-5
 ## **Model Performance**
 ```bash
 
-Metric	Value
-Accuracy	92.5%
-Weighted F1	0.91
-
+Test Accuracy: The model achieves an accuracy of approximately 98% on the MNIST test dataset.
+Metric	         Value
+Test Accuracy	    98%
 
 ```
 
